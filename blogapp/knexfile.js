@@ -1,44 +1,14 @@
-// Update with your config settings.
+let connectionString = 'postgres://localhost/blogapp'
 
 module.exports = {
-
   development: {
     client: 'pg',
-    connection: {
-      filename: 'postgres://localhost/blogapp'
-    }
-  },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    connection: connectionString,
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      directory: __dirname + '/db/migrations',
     },
-    pool: {
-      min: 2,
-      max: 10
+    seeds: {
+      directory: __dirname + '/db/seeds',
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   }
-
 };
